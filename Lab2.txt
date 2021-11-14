@@ -1,0 +1,42 @@
+clc
+clear all
+close all
+a = imread('C:\Users\munkh\OneDrive\Documents\Hicheel\HewTanilt\Lab2\DIP3E_Original_Images_CH02\C:\Users\munkh\OneDrive\Documents\Hicheel\HewTanilt\Lab2\DIP3E_Original_Images_CH02\dasgal1.tif')
+if(size(a,3)==3)
+  input = rgb2gray(a);
+ else
+  input = a;
+end
+
+subplot(2, 4, 1),imshow(input);
+bit7 = (input/2)*2;
+subplot(2, 4, 2),imshow(bit7);
+
+bit6 = (input/4)*4;
+subplot(2,4,3),imshow(bit6);
+
+bit5 =(input/8)*8;
+subplot(2,4,4),imshow(bit5);
+
+bit4 = (input/16)*16;
+subplot(2,4,5),imshow(bit4);
+
+bit3 = (input/32)*32;
+subplot(2,4,6),imshow(bit3);
+
+bit2 = (input/64)*64;
+subplot(2,4,7),imshow(bit2);
+
+output = input;
+for i = 1 : size(input, 1)
+  for j = 1 : size(input, 2)
+    if(input(i,j)>100)
+      output(i, j) = 255;
+    else
+      output(i,j) = 0;
+     end
+  end
+end
+subplot(2, 4, 8),imshow(output);
+
+
